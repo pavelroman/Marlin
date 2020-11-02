@@ -133,7 +133,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Delta_PR_SKR 1_3"
+#define CUSTOM_MACHINE_NAME "Delta_PR_SKR 1_3_eeprom_funguje"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -638,7 +638,7 @@
 
   #if ENABLED(DELTA_AUTO_CALIBRATION)
     // set the default number of probe points : n*n (1 -> 7)
-    #define DELTA_CALIBRATION_DEFAULT_POINTS 4
+    #define DELTA_CALIBRATION_DEFAULT_POINTS 6
   #endif
 
   #if EITHER(DELTA_AUTO_CALIBRATION, DELTA_CALIBRATION_MENU)
@@ -647,7 +647,7 @@
   #endif
 
   // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
-  #define DELTA_PRINTABLE_RADIUS 60.0    // (mm)
+  #define DELTA_PRINTABLE_RADIUS 85.0    // (mm)
 
   // Center-to-center distance of the holes in the diagonal push rods.
   #define DELTA_DIAGONAL_ROD 280.0        // (mm)
@@ -658,7 +658,7 @@
   #define DELTA_ENDSTOP_ADJ { 0.0, 0.0, 0.0 } // Get these values from G33 auto calibrate
 
   // Horizontal distance bridged by diagonal push rods when effector is centered.
-  #define DELTA_RADIUS 65.0              // (mm) Get this value from G33 auto calibrate
+  #define DELTA_RADIUS 101.0              // (mm) Get this value from G33 auto calibrate
 
   // Trim adjustments for individual towers
   // tower angle corrections for X and Y tower / rotate XYZ so Z tower angle = 0
