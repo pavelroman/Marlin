@@ -27,8 +27,8 @@
 // Trinamic Stallguard pins
 //
 #define X_DIAG_PIN                         P1_29  // X-
-#define Y_DIAG_PIN                         P1_27  // Y-
-#define Z_DIAG_PIN                         P1_25  // Z-
+#define Y_DIAG_PIN                         P1_25  // Y-  // BYLO 27 
+#define Z_DIAG_PIN                         P1_27  // Z-  //BYLO  25
 #define E0_DIAG_PIN                        P1_28  // X+
 #define E1_DIAG_PIN                        P1_26  // Y+
 
@@ -55,7 +55,7 @@
     #define Y_MIN_PIN                      P1_26  // Y+
   #endif
 #else
-  #define Y_MIN_PIN                        P1_27  // Y-
+  #define Y_MIN_PIN                        P1_27  // Y-  
   #define Y_MAX_PIN                        P1_26  // Y+
 #endif
 
@@ -67,7 +67,7 @@
     #define Z_MIN_PIN                      P1_24  // Z+
   #endif
 #else
-  #define Z_MIN_PIN                        P1_25  // Z-
+  #define Z_MIN_PIN                        P1_25  // Z-  
   #define Z_MAX_PIN                        P1_24  // Z+
 #endif
 
@@ -84,7 +84,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                  P1_24
+  #define Z_MIN_PROBE_PIN                  P1_25   
 #endif
 
 //
