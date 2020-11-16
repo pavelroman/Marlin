@@ -133,7 +133,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Delta_PR_SKR 1_4_test"
+#define CUSTOM_MACHINE_NAME "Delta_PR_SKR 1_4_BEZ_ZLUTYCH_HLASEK_ENDSTOPY_CHODI_dobry_extruder"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -536,9 +536,9 @@
 
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp 50.40
-  #define DEFAULT_bedKi 10.07
-  #define DEFAULT_bedKd 168.16
+  #define DEFAULT_bedKp 55.99
+  #define DEFAULT_bedKi 10.61
+  #define DEFAULT_bedKd 169.91
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -688,9 +688,9 @@
 #define USE_ZMAX_PLUG
 
 // Enable pullup for all endstops to prevent a floating state
-#define ENDSTOPPULLUPS
+//#define ENDSTOPPULLUPS
 #if DISABLED(ENDSTOPPULLUPS)
-  // Disable ENDSTOPPULLUPS to set pullups individually
+//Disable ENDSTOPPULLUPS to set pullups individually
 #define ENDSTOPPULLUP_XMAX
 #define ENDSTOPPULLUP_YMAX
 #define ENDSTOPPULLUP_ZMAX
@@ -716,11 +716,11 @@
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
 #define X_MIN_ENDSTOP_INVERTING false  // Set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING false  // Set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING FALSE  // Set to true to invert the logic of the endstop.
+#define Z_MIN_ENDSTOP_INVERTING TRUE  // Set to true to invert the logic of the endstop.
 #define X_MAX_ENDSTOP_INVERTING FALSE  // Set to true to invert the logic of the endstop.
 #define Y_MAX_ENDSTOP_INVERTING FALSE  // Set to true to invert the logic of the endstop.
 #define Z_MAX_ENDSTOP_INVERTING FALSE  // Set to true to invert the logic of the endstop.
-#define Z_MIN_PROBE_ENDSTOP_INVERTING FALSE  // Set to true to invert the logic of the probe.
+#define Z_MIN_PROBE_ENDSTOP_INVERTING TRUE  // Set to true to invert the logic of the probe.
 
 /**
  * Stepper Drivers
@@ -810,14 +810,14 @@
 
 // delta speeds must be the same on xyz
 #define DEFAULT_XYZ_STEPS_PER_UNIT ((XYZ_FULL_STEPS_PER_ROTATION) * (XYZ_MICROSTEPS) / double(XYZ_BELT_PITCH) / double(XYZ_PULLEY_TEETH))
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { DEFAULT_XYZ_STEPS_PER_UNIT, DEFAULT_XYZ_STEPS_PER_UNIT, DEFAULT_XYZ_STEPS_PER_UNIT, 395 }  // default steps per unit for Kossel (GT2, 20 tooth)
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { DEFAULT_XYZ_STEPS_PER_UNIT, DEFAULT_XYZ_STEPS_PER_UNIT, DEFAULT_XYZ_STEPS_PER_UNIT, 190 }  // default steps per unit for Kossel (GT2, 20 tooth)
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 500, 500, 500, 50 }
+#define DEFAULT_MAX_FEEDRATE          { 200, 200, 200, 200 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -830,7 +830,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 9000, 9000, 9000, 10000 }
+#define DEFAULT_MAX_ACCELERATION      { 9000, 9000, 9000, 3000 }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -911,7 +911,7 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN P1_00
 
 // Force the use of the probe for Z-axis homing
 //#define USE_PROBE_FOR_Z_HOMING
@@ -931,7 +931,7 @@
  *      - normally-closed switches to GND and D32.
  *      - normally-open switches to 5V and D32.
  */
-//#define Z_MIN_PROBE_PIN P1_25 // Pin 32 is the RAMPS default
+//#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
 
 /**
  * Probe Type
@@ -952,7 +952,7 @@
  * A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
  *   (e.g., an inductive probe or a nozzle-based probe-switch.)
  */
-#define FIX_MOUNTED_PROBE
+//#define FIX_MOUNTED_PROBE
 
 /**
  * Use the nozzle as the probe, as with a conductive
@@ -1170,7 +1170,7 @@
 
 // Disable axis steppers immediately when they're not being stepped.
 // WARNING: When motors turn off there is a chance of losing position accuracy!
-#define DISABLE_X false
+#define DISABLE_X true
 #define DISABLE_Y TRUE
 #define DISABLE_Z TRUE
 
